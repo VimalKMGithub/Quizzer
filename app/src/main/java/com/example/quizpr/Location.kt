@@ -29,6 +29,9 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
     private var lattitudee: Double = 0.0
     private var longitudee: Double = 0.0
 
+    // Variable to store current zoom level
+    private var currentZoomLevel: Float = 10f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
@@ -83,6 +86,8 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
 
     // Map click listener (reverse geocode the clicked location)
     override fun onMapClick(latLng: LatLng) {
+        // Preserve the current zoom level
+        currentZoomLevel = googleMap.cameraPosition.zoom
         getAddressFromLatLng(latLng)
     }
 
@@ -105,7 +110,7 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
                 googleMap.moveCamera(
                     CameraUpdateFactory.newLatLngZoom(
                         latLng,
-                        10f
+                        currentZoomLevel // Use preserved zoom level
                     )
                 ) // Move camera to the new location
 
@@ -144,7 +149,12 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
                 googleMap.addMarker(
                     MarkerOptions().position(latLng).title(address.getAddressLine(0))
                 )
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
+                googleMap.moveCamera(
+                    CameraUpdateFactory.newLatLngZoom(
+                        latLng,
+                        currentZoomLevel
+                    )
+                ) // Use preserved zoom level
             } else {
                 Toast.makeText(this, "No address found", Toast.LENGTH_SHORT).show()
             }
