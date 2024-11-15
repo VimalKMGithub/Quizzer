@@ -1,5 +1,6 @@
 package com.example.quizpr
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             val transaction = supportFragmentManager.beginTransaction()
             when (menuItem.itemId) {
+                R.id.nav_location -> startActivity(Intent(this@MainActivity, Location::class.java))
             }
             transaction.commit()
             binding.drawerLayout.closeDrawer(binding.navigationView)
