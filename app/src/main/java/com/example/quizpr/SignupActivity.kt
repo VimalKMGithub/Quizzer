@@ -42,7 +42,7 @@ class SignupActivity : AppCompatActivity() {
                 val user = User(
                     name,
                     email,
-                    "https://firebasestorage.googleapis.com/v0/b/quiz-5c7fb.appspot.com/o/avatar.png?alt=media&token=c4c1d3ed-541a-4d39-8e8a-9f005fae9ce2",
+                    "https://cdn.vectorstock.com/i/500p/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg",
                     referCode
                 )
                 dialog.show()
