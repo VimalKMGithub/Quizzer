@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/colorPrimary">
@@ -9,7 +10,8 @@
         android:id="@+id/profile_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/home_max" />
+        android:src="@drawable/home_max"
+        app:tint="@android:color/white" />
 
     <TextView
         android:id="@+id/username"

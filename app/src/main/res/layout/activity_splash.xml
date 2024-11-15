@@ -25,6 +25,8 @@
         android:text="Quizzer"
         android:textColor="@color/white"
         android:textSize="70sp"
+        android:padding="15dp"
+        android:background="@drawable/button_2"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -39,6 +41,8 @@
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="italic"
+        android:padding="15dp"
+        android:background="@drawable/button_1"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -52,6 +56,8 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="italic"
+        android:padding="15dp"
+        android:background="@drawable/button_3"
         app:layout_constraintEnd_toEndOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
