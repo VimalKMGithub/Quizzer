@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".Location">
 
-    <!-- Map Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -18,7 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.6" />
 
-    <!-- EditText for Location Input -->
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="0dp"
@@ -35,7 +33,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- Search Button -->
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
@@ -50,7 +47,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />
 
-    <!-- Latitude TextView -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -63,7 +59,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="5dp" />
 
-    <!-- Longitude TextView -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -76,7 +71,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="2dp" />
 
-    <!-- New EditText for displaying address -->
     <EditText
         android:id="@+id/addressEditText"
         android:layout_width="0dp"
@@ -94,7 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="5dp" />
 
-    <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -108,7 +101,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Map View Options (Initially Hidden) -->
     <LinearLayout
         android:id="@+id/mapOptionsLayout"
         android:layout_width="wrap_content"
@@ -123,7 +115,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="16dp">
 
-        <!-- Satellite Icon -->
         <ImageButton
             android:id="@+id/satelliteButton"
             android:layout_width="48dp"
@@ -134,7 +125,6 @@
             app:tint="@color/color_white"
             android:layout_marginBottom="8dp" />
 
-        <!-- Terrain Icon -->
         <ImageButton
             android:id="@+id/terrainButton"
             android:layout_width="48dp"
@@ -145,7 +135,6 @@
             android:background="@drawable/bg_map_opt"
             android:layout_marginBottom="8dp" />
 
-        <!-- Normal Icon -->
         <ImageButton
             android:id="@+id/normalButton"
             android:layout_width="48dp"
@@ -156,7 +145,6 @@
             android:background="@drawable/bg_map_opt"
             android:layout_marginBottom="8dp" />
 
-        <!-- Hybrid Icon -->
         <ImageButton
             android:id="@+id/hybridButton"
             android:layout_width="48dp"
@@ -165,7 +153,5 @@
             android:contentDescription="Hybrid View"
             android:background="@drawable/bg_map_opt"
             app:tint="@color/color_white" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
