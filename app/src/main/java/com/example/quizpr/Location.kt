@@ -3,8 +3,11 @@ package com.example.quizpr
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -13,6 +16,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.card.MaterialCardView
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
 
@@ -21,10 +27,10 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
     private lateinit var addressEditText: EditText
     private lateinit var text1: TextView
     private lateinit var text2: TextView
-    private lateinit var satelliteButton: Button
-    private lateinit var terrainButton: Button
-    private lateinit var hybridButton: Button
-    private lateinit var normalButton: Button
+    private lateinit var satelliteButton: ImageButton
+    private lateinit var terrainButton: ImageButton
+    private lateinit var hybridButton: ImageButton
+    private lateinit var normalButton: ImageButton
 
     private var lattitudee: Double = 0.0
     private var longitudee: Double = 0.0
@@ -59,6 +65,14 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
             getLocationFromAddress(locationName)
         }
 
+        val fab: FloatingActionButton = findViewById(R.id.floatingActionButton)
+        val mapOptionsLayout: LinearLayout = findViewById(R.id.mapOptionsLayout)
+
+        fab.setOnClickListener {
+            mapOptionsLayout.visibility =
+                if (mapOptionsLayout.visibility == View.GONE) View.VISIBLE else View.GONE
+        }
+
         // Switch to Satellite view
         satelliteButton = findViewById(R.id.satelliteButton)
         satelliteButton.setOnClickListener {
@@ -82,6 +96,7 @@ class Location : AppCompatActivity(), GoogleMap.OnMapClickListener {
         normalButton.setOnClickListener {
             googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
         }
+
     }
 
     // Map click listener (reverse geocode the clicked location)

@@ -10,7 +10,7 @@
         android:id="@+id/profile_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/home_max"
+        android:src="@drawable/main_i"
         app:tint="@android:color/white" />
 
     <TextView

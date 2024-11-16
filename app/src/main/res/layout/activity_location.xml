@@ -16,14 +16,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.53" /> <!-- Increased map height to 50% -->
+        app:layout_constraintHeight_percent="0.6" />
 
     <!-- EditText for Location Input -->
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:hint="Enter your location"
         android:inputType="text"
         android:padding="15dp"
@@ -34,8 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/map"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        android:layout_marginTop="16dp" />
 
     <!-- Search Button -->
     <Button
@@ -43,15 +41,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Search"
-        android:background="@drawable/button_2"
-        android:textColor="@color/color_white"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/button_2"
+        android:textColor="@color/color_white"
         app:layout_constraintTop_toBottomOf="@id/editTextText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        android:layout_marginTop="8dp" />
 
     <!-- Latitude TextView -->
     <TextView
@@ -64,8 +61,7 @@
         app:layout_constraintTop_toBottomOf="@id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        android:layout_marginTop="5dp" />
 
     <!-- Longitude TextView -->
     <TextView
@@ -78,8 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="2dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        android:layout_marginTop="2dp" />
 
     <!-- New EditText for displaying address -->
     <EditText
@@ -97,79 +92,80 @@
         app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        android:layout_marginTop="5dp" />
 
-    <!-- LinearLayout for the first two buttons (Satellite and Terrain) -->
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="0dp"
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/addressEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+        android:layout_margin="16dp"
+        android:src="@drawable/map_v"
+        android:contentDescription="Change Map View"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:elevation="8dp"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Satellite Button -->
-        <Button
+    <!-- Map View Options (Initially Hidden) -->
+    <LinearLayout
+        android:id="@+id/mapOptionsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@drawable/bg_none"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp">
+
+        <!-- Satellite Icon -->
+        <ImageButton
             android:id="@+id/satelliteButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Satellite"
-            android:background="@drawable/button_1"
-            android:textColor="@color/color_white"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/satellite_"
+            android:background="@drawable/bg_map_opt"
+            android:contentDescription="Satellite View"
+            app:tint="@color/color_white"
+            android:layout_marginBottom="8dp" />
 
-        <!-- Terrain Button -->
-        <Button
+        <!-- Terrain Icon -->
+        <ImageButton
             android:id="@+id/terrainButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Terrain"
-            android:background="@drawable/button_1"
-            android:textColor="@color/color_white"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/terrain"
+            android:contentDescription="Terrain View"
+            app:tint="@color/color_white"
+            android:background="@drawable/bg_map_opt"
+            android:layout_marginBottom="8dp" />
 
-    <!-- LinearLayout for the last two buttons (Hybrid and Normal) -->
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp">
-
-        <!-- Hybrid Button -->
-        <Button
-            android:id="@+id/hybridButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Hybrid"
-            android:background="@drawable/button_1"
-            android:textColor="@color/color_white"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1" />
-
-        <!-- Normal Button -->
-        <Button
+        <!-- Normal Icon -->
+        <ImageButton
             android:id="@+id/normalButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Normal"
-            android:background="@drawable/button_1"
-            android:textColor="@color/color_white"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/normal_"
+            android:contentDescription="Normal View"
+            app:tint="@color/color_white"
+            android:background="@drawable/bg_map_opt"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Hybrid Icon -->
+        <ImageButton
+            android:id="@+id/hybridButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/hybrid"
+            android:contentDescription="Hybrid View"
+            android:background="@drawable/bg_map_opt"
+            app:tint="@color/color_white" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
